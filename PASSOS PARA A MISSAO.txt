@@ -1,0 +1,19 @@
+PASSOS PARA A MISSAO
+
+BASE PARA MISSAO 1
+ andar_cm(-35)
+ girar_para(120)
+ andar_cm(-12)
+ abaixar_braco()
+ levantar_braco()
+ andar_cm(20)
+ girar_para(0)
+ seguir_linha_por_cm(20)
+ girar_para(110) 
+
+BASE PARA MISSAO 2
+ andar_cm(-4)
+ abrir_garra()
+ abaixar_braco()
+ fechar_garra()
+ levantar_braco()
