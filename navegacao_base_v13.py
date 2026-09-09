@@ -185,7 +185,7 @@ giro = GyroSensor(PORTA_GIRO)
 botao = Button()
 
 # ==================== CONSTANTES FISICAS ====================
-DIAMETRO_RODA = 4.0                                # cm - v12: engrenagem de 4cm (era pneu 58x28/5.8cm)
+DIAMETRO_RODA = 5.8                                # cm - v12: engrenagem de 4cm (era pneu 58x28/5.8cm)
                                                     # PROVISORIO: medir o diametro real de contato com
                                                     # o chao (engrenagem + qualquer borracha/O-ring) e
                                                     # ajustar - "4.0" e so o nominal da peca "nua".
@@ -371,7 +371,7 @@ def andar_cm_reto(distancia_cm, velocidade=VEL_NAVEGACAO):
 # ==================== PERCURSO POR LINHA ====================
 def seguir_linha_por_cm(distancia_cm, velocidade=VEL_LINHA):
     centralizar_na_via()      # evita correcao brusca se nao comecou centralizado
-    graus_alvo = distancia_cm * GRAUS_POR_CM
+    graus_alvo = (distancia_cm + 2) * GRAUS_POR_CM
     pos0 = abs(motor_esq.position)
     while abs(abs(motor_esq.position) - pos0) < graus_alvo:
         if botao.any():
@@ -576,31 +576,25 @@ def monitorar_sensores():
 
 # ==================== ESQUELETO DE MISSAO ====================
 def gangorra():
-    calibrar_giro()
-    andar_cm(-23)
-    girar_para(-115)
-    andar_cm(-12)
+    andar_cm(-32)
+    girar_para(-110)
+    andar_cm(-15)
     abaixar_braco()
     levantar_braco()
-    andar_cm(9)
-    girar_para(0)
+    sleep(0.4)
+    andar_cm(17)
+    girar_para(-190)
     
 
-def viagem_exemplo():
-    calibrar_giro()
+def bolsa():
+    abaixar_braco(98)
     andar_cm(-10)
-    girar_para(-45)
-    andar_cm(-7)
-    abrir_garra()
-    abaixar_braco()
     fechar_garra()
-    andar_cm(2)
-    levantar_braco()
-    andar_cm(7)
-    girar_para(0)
-    seguir_linha_por_cm(10)
-    girar_para(-45)
-                 
+
+
+def viagem_exemplo():
+    gangorra()
+                     
 
 
                         # mira LARGO na via para voltar
