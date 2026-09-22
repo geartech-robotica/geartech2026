@@ -120,6 +120,8 @@ v13 -bug corrigido: girar_para() (usado em gangorra()/viagem_exemplo())
       como trava de seguranca: se o erro nao convergir nesse tempo, ele
       para e imprime aviso em vez de girar pra sempre - protege contra
       esse tipo de bug travar o robo de novo no meio de uma partida.
+
+v14 - Adição do sensor ultrassonico (ja funcional) e projeto para medir, vai ser usado em futuras missões
 =====================================================================
 
 GEOMETRIA DA VIA (medida no tapete oficial):
