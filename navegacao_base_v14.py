@@ -585,7 +585,18 @@ def monitorar_sensores():
 
 
 # ==================== ESQUELETO DE MISSAO ====================
-def gangorra(): 
+''' para todos os fins
+    M1 - GANGORRA
+    M2 - CAIXOTES
+    M3 - RAMPA 
+    M4 - BOLSA
+    M5 - QUEBRA CABEÇA
+    M6 - CARRO
+    M7 - BANDEIRA
+    M8 - MAKER
+    M9- SUBIR A RAMPA '''
+
+def m1(): 
     andar_cm(-32)
     girar_para(-110)
     andar_cm(-15)
@@ -595,14 +606,94 @@ def gangorra():
     andar_cm(17)
     buscar_linha_girando()
 
+def m2():
+    seguir_linha_por_cm(36)
+    girar_para(-45)
+    abaixar_braco()
+    abrir_garra()
+    for _ in range(10):                  # trava: no máximo 10 ajustes
+    d = medir_cm()
+    if d <= 10:                      # perto o bastante -> fecha
+        fechar_garra()
+        break
+    if d > 30:                       # nada por perto (sem eco o sensor lê ~255)
+        break
+    andar_cm(-min(5, d - 20))        # longe demais -> chega mais perto
+    levantar_braco()
+    girar_para(0)
+    buscar_linha_girando()
+    seguir_linha_por_cm(64)
+    girar_para(-25)
+    seguir_linha_por(10)
+    abaixar_braco(30)
+    abrir_garra()
+    levantar_braco(30)
+    andar_cm(10)
+    girar_para(-180)
+    seguir_linha_por_cm(56)
+    girar_para(-90)
+    abaixar_braco()
+    for _ in range(10):                  # trava: no máximo 10 ajustes
+    d = medir_cm()
+    if d <= 10:                      # perto o bastante -> fecha
+        fechar_garra()
+        break
+    if d > 30:                       # nada por perto (sem eco o sensor lê ~255)
+        break
+    andar_cm(-min(5, d - 20))        # longe demais -> chega mais perto
+    girar_para(0)
+    buscar_linha_girando()
+    seguir_linha_por_cm(50)
+    girar_para(-25)
+    seguir_linha_por_cm(10)
+    abaixar_braco(30)
+    abrir_garra()
+    levantar_braco(30)
+    andar_cm(9)
+    girar_para(-180)
+    seguir_linha_por_cm(56)
+    girar_para(-45)
+    abaixar_braco()
+    for _ in range(10):                  # trava: no máximo 10 ajustes
+    d = medir_cm()
+    if d <= 10:                      # perto o bastante -> fecha
+        fechar_garra()
+        break
+    if d > 30:                       # nada por perto (sem eco o sensor lê ~255)
+        break
+    andar_cm(-min(5, d - 20))        # longe demais -> chega mais perto
+    levantar_braco()
+    girar_para(0)
+    buscar_linha_girando()
+    seguir_linha_por_cm(50)
+    girar_para(-25)
+    seguir_linha_por_cm(10)
+    abaixar_braco(30)
+    abrir_garra()
+    levantar_braco(30)
+    andar_cm(10)
+    girar_para(-180)
+    seguir_linha_por_cm(100)
+    girar_para(0)   
+
+def m3():
+    andar_cm(-30)
+    girar_para(-45)
+    buscar_linha_girando()
+    seguir_linha_ate_cruzamento(1)
+    andar_cm(-5)
+    girar_para(0)
+    andar_cm(-30)
     
 
-def bolsa():   
-    abaixar_braco(98)
-    andar_cm(-10)
-    fechar_garra()
+def m4():   
+    andar_cm(-20)
+    seguir_linha_por_cm(30)
+    girar_para(45)
+    buscar_linha_girando()
+    seguir_linha_por_cm(45)
 
-def caixa():
+def m5():
     seguir_linha_ate_cruzamento(1)
     girar_para(-15)
     abrir_garra()
@@ -616,17 +707,43 @@ def caixa():
     levantar_braco()
     andar_cm(-7)
 
+def m6():
+    andar_cm(-32)
+    
+
+def m7():
+    andar_cm(-32)
+    seguir_linha_ate_cruzamento(1)
+    abaixar_braco(100)
+    girar_para(-180)
+    
+def m8():
+
+def m9():
+    andar_cm(7)
+    andar_cm(-25)
+    sleep(0.5)
+    andar_cm(25)
+    buscar_linha_girando()
 
     
 
 
 def viagem_exemplo():
-    gangorra()
+    m1()
+    m2()
+    m3()
+    m9()
+    m5()
+    m6()
+    m7()
+    m4()
+    m8()
 
 
                      
 
-''' SEQUENCIA DAS MISSOES M1 -> M2 -> M3 -> M9 -> M5 -> M6 -> M7 -> M4 -> M8'''
+''' SEQUENCIA DAS MISSOES M1(pronto) -> M2(pronta mas nao avaliada) -> M3(pronta mas nao avaliada) -> M9 -> M5 -> M6 -> M7 -> M4 -> M8'''
                         # mira LARGO na via para voltar
 
 
