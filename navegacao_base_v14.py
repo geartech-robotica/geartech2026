@@ -215,7 +215,7 @@ VEL_GARRA = 100
 VEL_BRACO = 20
 
 #====================GRAUS GARRA======================
-GRAUS_GARRA = 2500   # curso de abertura/fechamento da garra
+GRAUS_GARRA = 360   # curso de abertura/fechamento da garra
 GRAUS_BRACO = 130   # curso de subida/descida do braco
 
 
@@ -319,7 +319,7 @@ def calibrar_giro():
     print("Giro calibrado. Angulo:", angulo())
 
 
-def girar_para(angulo_alvo, velocidade=VEL_GIRO, tempo_max=5.0):
+def girar_para(angulo_alvo, velocidade=VEL_GIRO, tempo_max=8.0):
     """tempo_max e trava de seguranca: se o erro nao converge nesse tempo
     (ex: sinal do giroscopio errado de novo), para e avisa em vez de
     ficar girando infinitamente."""
@@ -340,7 +340,7 @@ def girar_para(angulo_alvo, velocidade=VEL_GIRO, tempo_max=5.0):
     robo.off()
 
 
-def girar_relativo(graus, velocidade=VEL_GIRO, tempo_max=5.0):
+def girar_relativo(graus, velocidade=VEL_GIRO, tempo_max=8.0):
     """+ = direita, - = esquerda, a partir da direcao atual."""
     girar_para(angulo() + graus, velocidade, tempo_max)
 
@@ -593,7 +593,7 @@ def gangorra():
     levantar_braco()
     sleep(0.4)
     andar_cm(17)
-    girar_para(-190)
+    buscar_linha_girando()
 
     
 
@@ -626,7 +626,7 @@ def viagem_exemplo():
 
                      
 
-
+''' SEQUENCIA DAS MISSOES M1 -> M2 -> M3 -> M9 -> M5 -> M6 -> M7 -> M4 -> M8'''
                         # mira LARGO na via para voltar
 
 
