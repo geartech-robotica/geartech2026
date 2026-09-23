@@ -596,6 +596,9 @@ def monitorar_sensores():
     M8 - MAKER
     M9- SUBIR A RAMPA '''
 
+''' SEQUENCIA DAS MISSOES M1(pronto) -> M2(pronta mas nao avaliada) -> M3(pronta mas nao avaliada) -> M9(pronta mas nao avaliada) -> 
+M5(pronta mas nao avaliada) -> M6 -> M7(pronta mas nao avaliada) -> M4 -> M8'''
+
 def m1(): 
     andar_cm(-32)
     girar_para(-110)
@@ -739,12 +742,6 @@ def viagem_exemplo():
     m7()
     m4()
     m8()
-
-
-                     
-
-''' SEQUENCIA DAS MISSOES M1(pronto) -> M2(pronta mas nao avaliada) -> M3(pronta mas nao avaliada) -> M9 -> M5 -> M6 -> M7 -> M4 -> M8'''
-                        # mira LARGO na via para voltar
 
 
 if __name__ == "__main__":
